@@ -1,0 +1,396 @@
+
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nodem Nodem Luca Evans | Portfolio Ingénieur Réseau & Sécurité</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Fonts Google & FontAwesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            code: ['Fira Code', 'monospace'],
+          },
+          colors: {
+            cyber: {
+              bg: '#090d16',
+              card: '#111726',
+              border: '#1e293b',
+              accent: '#38bdf8',
+              purple: '#818cf8',
+              emerald: '#10b981',
+              neon: '#00f0ff'
+            }
+          },
+          animation: {
+            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'glow': 'glow 3s infinite alternate',
+          },
+          keyframes: {
+            glow: {
+              '0%': { boxShadow: '0 0 15px rgba(56, 189, 248, 0.2)' },
+              '100%': { boxShadow: '0 0 30px rgba(56, 189, 248, 0.6)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* CSS Personnalisé & Effets Visuels Haut de Gamme */
+    body {
+      background-color: #080c14;
+      color: #cbd5e1;
+      overflow-x: hidden;
+    }
+
+    /* Background Grille Cybernétique */
+    .cyber-grid {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    }
+
+    /* Effets de Surlignement & Neons */
+    .glow-box {
+      position: relative;
+      background: rgba(17, 23, 38, 0.7);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(56, 189, 248, 0.15);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .glow-box:hover {
+      border-color: rgba(56, 189, 248, 0.6);
+      transform: translateY(-6px);
+      box-shadow: 0 12px 35px -10px rgba(56, 189, 248, 0.25);
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #34d399 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .glass-nav {
+      background: rgba(9, 13, 22, 0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* Terminal Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #080c14;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1e293b;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #38bdf8;
+    }
+  </style>
+</head>
+<body class="cyber-grid antialiased font-sans relative">
+
+  <!-- FLOU DÉCORATIF EN ARRIÈRE-PLAN -->
+  <div class="fixed top-0 left-1/4 w-[500px] h-[500px] bg-sky-500/10 rounded-full blur-[120px] pointer-events-none z-0"></div>
+  <div class="fixed bottom-10 right-10 w-[400px] h-[400px] bg-indigo-500/10 rounded-full blur-[100px] pointer-events-none z-0"></div>
+
+  <!-- NAVIGATION BAR -->
+  <nav class="fixed top-0 left-0 right-0 z-50 glass-nav py-4 px-6 md:px-12 transition-all duration-300">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-500 to-indigo-600 flex items-center justify-center text-slate-950 font-bold text-lg shadow-lg shadow-sky-500/20 group-hover:scale-105 transition-transform">
+          NL
+        </div>
+        <div class="flex flex-col">
+          <span class="font-bold text-white tracking-wider text-base">NODEM LUCA</span>
+          <span class="font-code text-[10px] text-sky-400 tracking-widest uppercase">Keyce Info & IA</span>
+        </div>
+      </a>
+
+      <!-- Liens Desktop -->
+      <div class="hidden md:flex items-center gap-8 font-medium text-sm text-slate-300">
+        <a href="#about" class="hover:text-sky-400 transition-colors">À Propos</a>
+        <a href="#skills" class="hover:text-sky-400 transition-colors">Compétences</a>
+        <a href="#projects" class="hover:text-sky-400 transition-colors">Projets</a>
+        <a href="#terminal" class="hover:text-sky-400 transition-colors">Console CLI</a>
+        <a href="#contact" class="hover:text-sky-400 transition-colors">Contact</a>
+      </div>
+
+      <div class="flex items-center gap-4">
+        <a href="https://github.com/nodemnodemlucaevans" target="_blank" class="bg-slate-800/80 hover:bg-sky-500 hover:text-slate-950 text-white p-2.5 rounded-xl border border-slate-700 transition duration-300 flex items-center gap-2 font-code text-xs">
+          <i class="fa-brands fa-github text-lg"></i>
+          <span class="hidden sm:inline">GitHub Profile</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="min-h-screen pt-32 pb-20 px-6 flex flex-col justify-center items-center relative z-10">
+    <div class="max-w-4xl mx-auto text-center">
+      
+      <!-- Badge d'établissement -->
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-sky-950/80 border border-sky-500/30 text-sky-400 text-xs font-code font-semibold mb-8 animate-pulse-slow">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+        <span>Keyce Informatique & Intelligence Artificielle • L2 (2025/2026)</span>
+      </div>
+
+      <!-- Nom & Titre -->
+      <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold text-white tracking-tight mb-6 leading-tight">
+        Nodem Nodem <br class="hidden sm:block"/>
+        <span class="gradient-text">Luca Evans</span>
+      </h1>
+
+      <p class="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto font-light leading-relaxed mb-10">
+        Étudiant en **Génie Logiciel & Informatique**. Passionné par l'architecture des **Réseaux**, la **Containerisation DevOps** et l'**Automatisation Sécurisée**.
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="flex flex-wrap justify-center gap-4 mb-16">
+        <a href="#projects" class="bg-gradient-to-r from-sky-500 to-indigo-600 hover:from-sky-400 hover:to-indigo-500 text-slate-950 font-bold px-8 py-4 rounded-xl shadow-lg shadow-sky-500/25 transition duration-300 flex items-center gap-3 text-sm">
+          <i class="fa-solid fa-code-branch"></i>
+          <span>Explorer mes 3 Projets GitHub</span>
+        </a>
+        <button onclick="toggleCVModal()" class="bg-slate-900/90 hover:bg-slate-800 text-white font-semibold px-8 py-4 rounded-xl border border-slate-700 hover:border-sky-500/50 transition duration-300 flex items-center gap-3 text-sm">
+          <i class="fa-solid fa-file-pdf text-red-400"></i>
+          <span>Voir le CV</span>
+        </button>
+      </div>
+
+      <!-- Stat Banners -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
+        <div class="p-4 rounded-xl bg-slate-900/50 border border-slate-800 text-center">
+          <div class="text-2xl font-bold text-sky-400 font-code">100%</div>
+          <div class="text-xs text-slate-400 mt-1">Code Original GitHub</div>
+        </div>
+        <div class="p-4 rounded-xl bg-slate-900/50 border border-slate-800 text-center">
+          <div class="text-2xl font-bold text-indigo-400 font-code">Cisco CLI</div>
+          <div class="text-xs text-slate-400 mt-1">VLAN & Routing</div>
+        </div>
+        <div class="p-4 rounded-xl bg-slate-900/50 border border-slate-800 text-center">
+          <div class="text-2xl font-bold text-emerald-400 font-code">Docker</div>
+          <div class="text-xs text-slate-400 mt-1">Multi-Conteneurs</div>
+        </div>
+        <div class="p-4 rounded-xl bg-slate-900/50 border border-slate-800 text-center">
+          <div class="text-2xl font-bold text-amber-400 font-code">Python 3</div>
+          <div class="text-xs text-slate-400 mt-1">Network Automation</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION À PROPOS & FORMATION -->
+  <section id="about" class="py-20 px-6 relative z-10 max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      
+      <div class="lg:col-span-5">
+        <div class="relative">
+          <div class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-sky-500 to-indigo-600 opacity-30 blur-lg"></div>
+          <div class="relative bg-slate-900 rounded-2xl p-8 border border-slate-800">
+            <div class="w-16 h-16 rounded-xl bg-sky-500/10 border border-sky-500/30 flex items-center justify-center text-sky-400 text-2xl mb-6">
+              <i class="fa-solid fa-user-gear"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-2">Nodem Nodem Luca Evans</h3>
+            <p class="text-sky-400 font-code text-sm mb-4">Étudiant en Licence 2 Génie Logiciel</p>
+            <p class="text-slate-300 text-sm leading-relaxed mb-6">
+              Rigoureux et axé sur la qualité technique, je me spécialise dans la conception d'architectures réseaux sécurisées, le déploiement d'environnements virtualisés sous Docker et l'automatisation de tâches d'administration via Python.
+            </p>
+            <div class="space-y-3 font-code text-xs text-slate-400 border-t border-slate-800 pt-4">
+              <div class="flex justify-between">
+                <span>Établissement:</span>
+                <span class="text-white">Keyce Informatique & IA</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Année Académique:</span>
+                <span class="text-white">2025 - 2026</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Statut GitHub:</span>
+                <span class="text-emerald-400">Dépôts Déclarés & Indépendants</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-7 space-y-6">
+        <div>
+          <h2 class="text-3xl font-bold text-white mb-2">Mon Parcours Académique & Vision</h2>
+          <p class="text-slate-400 text-sm">Allier la puissance du Génie Logiciel à la maîtrise des infrastructures réseau modernes.</p>
+        </div>
+
+        <div class="space-y-4">
+          <!-- Carte Parcours 1 -->
+          <div class="p-6 rounded-xl bg-slate-900/60 border border-slate-800 flex gap-4">
+            <div class="text-sky-400 text-2xl pt-1">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+            <div>
+              <h4 class="text-lg font-bold text-white">Licence 2 en Génie Logiciel & Informatique</h4>
+              <p class="text-xs text-sky-400 font-code mb-2">Keyce Informatique & IA • 2025 - 2026</p>
+              <p class="text-sm text-slate-300">
+                Formation approfondie couvrant l'ingénierie logicielle, les bases de données, les réseaux informatiques Cisco, la sécurité système et les environnements Linux.
+              </p>
+            </div>
+          </div>
+
+          <!-- Carte Parcours 2 -->
+          <div class="p-6 rounded-xl bg-slate-900/60 border border-slate-800 flex gap-4">
+            <div class="text-indigo-400 text-2xl pt-1">
+              <i class="fa-solid fa-server"></i>
+            </div>
+            <div>
+              <h4 class="text-lg font-bold text-white">Spécialisation Réseaux & Containerisation</h4>
+              <p class="text-xs text-indigo-400 font-code mb-2">Projets Pratiques Indépendants</p>
+              <p class="text-sm text-slate-300">
+                Mise en œuvre concrète de réseaux d'entreprise avec VLANs Cisco, création de scripts d'automatisation d'administration et déploiement de topologies Docker Compose multi-réseaux.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION COMPÉTENCES -->
+  <section id="skills" class="py-20 px-6 relative z-10 max-w-7xl mx-auto">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl font-bold text-white mb-3">Compétences Techniques</h2>
+      <p class="text-slate-400 text-sm max-w-xl mx-auto">Les technologies et protocoles que j'utilise au quotidien pour concevoir des architectures fiables.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+      <!-- SKILL BOX 1 -->
+      <div class="glow-box rounded-2xl p-6">
+        <div class="w-12 h-12 rounded-xl bg-sky-500/10 border border-sky-500/30 flex items-center justify-center text-sky-400 text-xl mb-4">
+          <i class="fa-brands fa-docker"></i>
+        </div>
+        <h3 class="text-lg font-bold text-white mb-3">DevOps & Containers</h3>
+        <ul class="space-y-2 text-xs font-code text-slate-300">
+          <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Docker & Docker Compose</li>
+          <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Nginx Reverse Proxy</li>
+          <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Networks Isolation</li>
+          <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Multi-tier Architecture</li>
+        </ul>
+      </div>
+
+      <!-- SKILL BOX 2 -->
+      <div class="glow-box rounded-2xl p-6">
+        <div class="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center text-indigo-400 text-xl mb-4">
+          <i class="fa-solid fa-network-wired"></i>
+        </div>
+        <h3 class="text-lg font-bold text-white mb-3">Réseaux Cisco & CLI</h3>
+        <ul class="space-y-2 text-xs font-code text-slate-300">
+          <li class="flex items-center gap-2"><i class="fa-solid fa-check text-indigo-400"></i> VLANs 802.1Q & Trunking</li>
+          <li class="flex items-center gap-2"><i class="fa-solid fa-check text-indigo-400"></i> Inter-VLAN Routing</li>
+          <li class="flex items-center gap-2"><i class="fa-solid fa-check text-indigo-400"></i> Switch Port Security</li>
+          <li class="flex items-center gap-2"><i class="fa-solid fa-check text-indigo-400"></i> Spanning Tree Protocol</li>
+        </ul>
+      </div>
+
+      <!-- SKILL BOX 3 -->
+      <div class="glow-box rounded-2xl p-6">
+        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-xl mb-4">
+          <i class="fa-brands fa-python"></i>
+        </div>
+        <h3 class="text-lg font-bold text-white mb-3">Automation & Scripting</h3>
+        <ul class="space-y-2 text-xs font-code text-slate-300">
+          <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Python 3 Network Scripts</li>
+          <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> SSH Auto Backups</li>
+          <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Bash Scripting Linux</li>
+          <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> REST APIs Integration</li>
+        </ul>
+      </div>
+
+      <!-- SKILL BOX 4 -->
+      <div class="glow-box rounded-2xl p-6">
+        <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 text-xl mb-4">
+          <i class="fa-solid fa-shield-halved"></i>
+        </div>
+        <h3 class="text-lg font-bold text-white mb-3">Sécurité & Data</h3>
+        <ul class="space-y-2 text-xs font-code text-slate-300">
+          <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-400"></i> PostgreSQL Management</li>
+          <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-400"></i> Network ACLs & Rules</li>
+          <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-400"></i> SSH RSA Encryption</li>
+          <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-400"></i> System Hardening</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION PROJETS ORIGINAUX GITHUB -->
+  <section id="projects" class="py-20 px-6 relative z-10 max-w-7xl mx-auto">
+    
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
+      <div>
+        <span class="text-sky-400 font-code text-xs tracking-wider uppercase">Portfolio Technique</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-white mt-1">Projets GitHub Recommandés</h2>
+      </div>
+
+      <!-- Filtres -->
+      <div class="flex flex-wrap gap-2 font-code text-xs">
+        <button onclick="filterProjects('all')" class="filter-btn active bg-sky-500 text-slate-950 px-4 py-2 rounded-lg font-semibold transition">Tous</button>
+        <button onclick="filterProjects('devops')" class="filter-btn bg-slate-900 border border-slate-800 text-slate-300 px-4 py-2 rounded-lg hover:border-sky-500 transition">Docker</button>
+        <button onclick="filterProjects('cisco')" class="filter-btn bg-slate-900 border border-slate-800 text-slate-300 px-4 py-2 rounded-lg hover:border-sky-500 transition">Cisco Network</button>
+        <button onclick="filterProjects('python')" class="filter-btn bg-slate-900 border border-slate-800 text-slate-300 px-4 py-2 rounded-lg hover:border-sky-500 transition">Python</button>
+      </div>
+    </div>
+
+    <!-- GRILLE DES PROJETS -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+      <!-- PROJET 1 : DOCKER -->
+      <div class="project-card devops glow-box rounded-2xl p-7 flex flex-col justify-between">
+        <div>
+          <div class="flex justify-between items-center mb-6">
+            <div class="w-12 h-12 rounded-xl bg-sky-500/10 border border-sky-500/30 flex items-center justify-center text-sky-400 text-2xl">
+              <i class="fa-brands fa-docker"></i>
+            </div>
+            <span class="font-code text-[11px] bg-sky-950 text-sky-300 px-3 py-1 rounded-full border border-sky-800/50">DevOps & Infra</span>
+          </div>
+
+          <h3 class="text-xl font-bold text-white mb-3">Docker Network Infrastructure</h3>
+          <p class="text-slate-300 text-sm leading-relaxed mb-6">
+            Architecture multi-conteneurs comprenant un reverse proxy Nginx et une base de données PostgreSQL isolée dans un réseau interne sécurisé (`backend-network`).
+          </p>
+
+          <div class="space-y-2 mb-6">
+            <div class="text-xs font-code text-slate-400"><strong>Fichiers principaux :</strong></div>
+            <div class="flex flex-wrap gap-2 font-code text-[11px]">
+              <span class="bg-slate-800 text-sky-300 px-2.5 py-1 rounded">docker-compose.yml</span>
+              <span class="bg-slate-800 text-sky-300 px-2.5 py-1 rounded">README.md</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-slate-800 flex gap-3">
+          <a href="https://github.com/nodemnodemlucaevans/docker-network-infrastructure" target="_blank" class="flex-1 bg-gradient-to-r from-sky-500 to-indigo-600 hover:from-sky-400 hover:to-indigo-500 text-slate-950 font-bold text-xs py-3 rounded-xl text-center transition flex items-center justify-center gap-2">
+            <i class="fa-brands fa-github"></i>Voir sur GitHub
+          </a>
+          <button onclick="openDemo('docker')" class="bg-slate-800 hover:bg-slate-70
